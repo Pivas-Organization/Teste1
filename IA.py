@@ -122,5 +122,6 @@ def plotar_rota(cidades, rota):
 
 
 rota_final, distancia_final = algoritmo_genetico()
+plotar_rota(cidades, rota_final)
 
 print(f"\nMelhor distância encontrada: {distancia_final:.2f}")
