@@ -102,6 +102,25 @@ def algoritmo_genetico():
 
     return melhor_rota, melhor_distancia
 
+def plotar_rota(cidades, rota):
+    x = [cidade[0] for cidade in rota]
+    y = [cidade[1] for cidade in rota]
+    
+    plt.figure(figsize=(10, 8))
+    plt.plot(x, y, marker='o', linestyle='-', color='b')
+    
+    # Conectar a última cidade com a primeira
+    plt.plot([x[-1], x[0]], [y[-1], y[0]], marker='o', linestyle='-', color='b')
+    
+    for i, cidade in enumerate(rota):
+        plt.text(cidade[0], cidade[1], f'{i+1}', fontsize=12, ha='right')
+    
+    plt.title("Melhor Rota Encontrada (Caixeiro Viajante)")
+    plt.xlabel("Coordenada X")
+    plt.ylabel("Coordenada Y")
+    plt.show()
+
+
 rota_final, distancia_final = algoritmo_genetico()
 
 print(f"\nMelhor distância encontrada: {distancia_final:.2f}")
